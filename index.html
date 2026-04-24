@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iglesia Asamblea de Dios El Shaddai – Samaná, RD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --dark: #0d0d0d;
+      --dark2: #1a1a1a;
+      --dark3: #242424;
+      --cream: #f5f0e8;
+      --white: #ffffff;
+      --text-muted: #999;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(13,13,13,0.95);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--cream);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 50%),
+        var(--dark);
+    }
+
+    .hero::before {
+      content: '✦';
+      position: absolute;
+      font-size: 40rem;
+      color: rgba(201,168,76,0.03);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: rotateStar 60s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes rotateStar {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 0.4rem 1.2rem;
+      margin-bottom: 2rem;
+      animation: fadeUp 1s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 7vw, 6rem);
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      animation: fadeUp 1s ease both 0.2s;
+    }
+
+    .hero-title span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      animation: fadeUp 1s ease both 0.4s;
+    }
+
+    .hero-verse {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: rgba(245,240,232,0.6);
+      max-width: 500px;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      animation: fadeUp 1s ease both 0.6s;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 0.9rem 2.5rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: all 0.3s;
+      animation: fadeUp 1s ease both 0.8s;
+    }
+
+    .hero-cta:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    /* DIVIDER */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 3rem 4rem;
+      color: var(--gold);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(201,168,76,0.3);
+    }
+
+    /* HORARIOS */
+    .horarios {
+      padding: 5rem 4rem;
+      background: var(--dark2);
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      margin-bottom: 3rem;
+    }
+
+    .horarios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(201,168,76,0.15);
+    }
+
+    .horario-card {
+      background: var(--dark2);
+      padding: 2.5rem 2rem;
+      transition: background 0.3s;
+      cursor: default;
+    }
+
+    .horario-card:hover {
+      background: var(--dark3);
+    }
+
+    .horario-dia {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .horario-nombre {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    /* QUIENES SOMOS */
+    .quienes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 500px;
+    }
+
+    .quienes-image {
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.2) 0%, transparent 70%),
+        var(--dark3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+      padding: 4rem;
+    }
+
+    .quienes-text {
+      background: var(--dark);
+      padding: 6rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .quienes-text p {
+      font-size: 1rem;
+      line-height: 2;
+      color: rgba(245,240,232,0.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .pastor-box {
+      border-left: 2px solid var(--gold);
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .pastor-box .pastor-titulo {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .pastor-box .pastor-nombre {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+    }
+
+    /* EVENTOS */
+    .eventos {
+      padding: 5rem 4rem;
+      background: var(--dark2);
+    }
+
+    .eventos-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: rgba(201,168,76,0.15);
+    }
+
+    .evento-item {
+      background: var(--dark2);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      transition: background 0.3s;
+    }
+
+    .evento-item:hover { background: var(--dark3); }
+
+    .evento-fecha {
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .evento-fecha .dia {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .evento-fecha .mes {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .evento-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .evento-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* DONACIONES */
+    .donaciones {
+      padding: 6rem 4rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.1) 0%, transparent 60%),
+        var(--dark);
+    }
+
+    .donaciones p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: rgba(245,240,232,0.65);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .donacion-btn {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.9rem 2.5rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+
+    .donacion-btn:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    /* CONTACTO */
+    .contacto {
+      padding: 5rem 4rem;
+      background: var(--dark2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .contacto-info .item {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      align-items: flex-start;
+    }
+
+    .contacto-info .icon {
+      font-size: 1.5rem;
+      min-width: 40px;
+    }
+
+    .contacto-info .label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .contacto-info .value {
+      font-size: 0.95rem;
+      color: var(--cream);
+      line-height: 1.6;
+    }
+
+    .contacto-form input,
+    .contacto-form textarea {
+      width: 100%;
+      background: var(--dark3);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--cream);
+      padding: 0.9rem 1.2rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .contacto-form input:focus,
+    .contacto-form textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .contacto-form textarea { height: 120px; resize: none; }
+
+    .submit-btn {
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      padding: 0.9rem 2rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background: var(--gold-light);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 3rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.7rem; }
+      .horarios { padding: 3rem 1.5rem; }
+      .horarios-grid { grid-template-columns: 1fr; }
+      .quienes { grid-template-columns: 1fr; }
+      .quienes-image { min-height: 250px; }
+      .quienes-text { padding: 3rem 1.5rem; }
+      .eventos { padding: 3rem 1.5rem; }
+      .evento-item { gap: 1.5rem; }
+      .donaciones { padding: 4rem 1.5rem; }
+      .contacto { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+      .divider { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">El Shaddai</div>
+    <ul class="nav-links">
+      <li><a href="#horarios">Horarios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#eventos">Eventos</a></li>
+      <li><a href="#donaciones">Donaciones</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Samaná, República Dominicana</div>
+    <h1 class="hero-title">Iglesia Asamblea<br/>de Dios <span>El Shaddai</span></h1>
+    <p class="hero-subtitle">Fe · Esperanza · Comunidad</p>
+    <p class="hero-verse">"El Señor es mi pastor, nada me faltará."<br/>— Salmos 23:1</p>
+    <a href="#horarios" class="hero-cta">Ver Horarios</a>
+  </section>
+
+  <div class="divider">Únete a nuestra congregación</div>
+
+  <!-- HORARIOS -->
+  <section class="horarios" id="horarios">
+    <p class="section-label reveal">Servicios semanales</p>
+    <h2 class="section-title reveal">Horarios de Cultos</h2>
+    <div class="horarios-grid reveal">
+      <div class="horario-card">
+        <div class="horario-dia">Lunes</div>
+        <div class="horario-nombre">Culto de Adoración y Alabanza</div>
+      </div>
+      <div class="horario-card">
+        <div class="horario-dia">Martes</div>
+        <div class="horario-nombre">Servicios Evangelísticos</div>
+      </div>
+      <div class="horario-card">
+        <div class="horario-dia">Miércoles</div>
+        <div class="horario-nombre">Sociedad de Damas</div>
+      </div>
+      <div class="horario-card">
+        <div class="horario-dia">Viernes</div>
+        <div class="horario-nombre">Sociedad de Caballeros</div>
+      </div>
+      <div class="horario-card">
+        <div class="horario-dia">Sábado</div>
+        <div class="horario-nombre">Sociedad de Jóvenes</div>
+      </div>
+      <div class="horario-card">
+        <div class="horario-dia">Domingo</div>
+        <div class="horario-nombre">Culto Congregacional</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIENES SOMOS -->
+  <section class="quienes" id="nosotros">
+    <div class="quienes-image">🕊️</div>
+    <div class="quienes-text">
+      <p class="section-label reveal">Nuestra historia</p>
+      <h2 class="section-title reveal">¿Quiénes Somos?</h2>
+      <p class="reveal">Somos una congregación cristiana ubicada en Samaná, República Dominicana, comprometida con predicar el evangelio de Jesucristo y servir a nuestra comunidad con amor y fe.</p>
+      <p class="reveal">Creemos en la familia, en la adoración genuina y en el poder transformador de la Palabra de Dios. Todas las personas son bienvenidas en nuestra iglesia.</p>
+      <div class="pastor-box reveal">
+        <div class="pastor-titulo">Pastor Principal</div>
+        <div class="pastor-nombre">Jaime Trinidad</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">Próximos eventos</div>
+
+  <!-- EVENTOS -->
+  <section class="eventos" id="eventos">
+    <p class="section-label reveal">Agenda</p>
+    <h2 class="section-title reveal">Eventos Especiales</h2>
+    <div class="eventos-list reveal">
+      <div class="evento-item">
+        <div class="evento-fecha">
+          <div class="dia">01</div>
+          <div class="mes">Mayo</div>
+        </div>
+        <div class="evento-info">
+          <h3>Culto de Avivamiento</h3>
+          <p>Una noche especial de oración y adoración para toda la familia</p>
+        </div>
+      </div>
+      <div class="evento-item">
+        <div class="evento-fecha">
+          <div class="dia">15</div>
+          <div class="mes">Mayo</div>
+        </div>
+        <div class="evento-info">
+          <h3>Día de la Madre</h3>
+          <p>Celebración especial en honor a todas las madres de la congregación</p>
+        </div>
+      </div>
+      <div class="evento-item">
+        <div class="evento-fecha">
+          <div class="dia">01</div>
+          <div class="mes">Jun</div>
+        </div>
+        <div class="evento-info">
+          <h3>Retiro Juvenil</h3>
+          <p>Actividad especial para la Sociedad de Jóvenes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONACIONES -->
+  <section class="donaciones" id="donaciones">
+    <p class="section-label reveal">Apoya la obra</p>
+    <h2 class="section-title reveal">Donaciones</h2>
+    <p class="reveal">Tu ofrenda ayuda a sostener la obra de Dios en Samaná y a bendecir a más familias en nuestra comunidad. Cada contribución, grande o pequeña, hace la diferencia.</p>
+    <p style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold); font-size: 1.1rem; margin-bottom: 2rem;" class="reveal">"Dad, y se os dará." — Lucas 6:38</p>
+    <a href="#contacto" class="donacion-btn reveal">Contáctanos para donar</a>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contacto" id="contacto">
+    <div class="contacto-info">
+      <p class="section-label reveal">Estamos aquí</p>
+      <h2 class="section-title reveal">Contacto</h2>
+      <div class="item reveal">
+        <div class="icon">📍</div>
+        <div>
+          <div class="label">Ubicación</div>
+          <div class="value">Samaná, República Dominicana</div>
+        </div>
+      </div>
+      <div class="item reveal">
+        <div class="icon">👨‍💼</div>
+        <div>
+          <div class="label">Pastor Principal</div>
+          <div class="value">Jaime Trinidad</div>
+        </div>
+      </div>
+      <div class="item reveal">
+        <div class="icon">🕐</div>
+        <div>
+          <div class="label">Servicios</div>
+          <div class="value">Lunes a Domingo<br/>Consulta nuestros horarios</div>
+        </div>
+      </div>
+    </div>
+    <div class="contacto-form reveal">
+      <p class="section-label">Escríbenos</p>
+      <br/>
+      <input type="text" placeholder="Tu nombre"/>
+      <input type="email" placeholder="Tu correo electrónico"/>
+      <textarea placeholder="Tu mensaje..."></textarea>
+      <button class="submit-btn">Enviar Mensaje</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Iglesia Asamblea de Dios El Shaddai</div>
+    <div class="footer-copy">© 2025 · Samaná, República Dominicana · Pastor Jaime Trinidad</div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+    reveals.forEach(r => {
+      const rect = r.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        r.classList.add('visible');
+      } else {
+        observer.observe(r);
+      }
+    });
+  </script>
+</body>
+</html>
